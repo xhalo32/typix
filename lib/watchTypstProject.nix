@@ -60,6 +60,8 @@ in
         + ''
 
           ${toShellVars {inherit typstOutput typstSource XDG_CACHE_HOME;}}
+          export XDG_CACHE_HOME
+          
           out=''${1:-''${typstOutput:?not defined}}
           mkdir -p "$(dirname "$out")"
           ${typstWatchCommand} ${typstOptsString} "$typstSource" "$out"
