@@ -11,6 +11,7 @@
   typstSource ? "main.typ",
   typstWatchCommand ? "typst watch",
   virtualPaths ? [],
+  XDG_CACHE_HOME ? "",
   ...
 }: let
   inherit (builtins) removeAttrs;
@@ -57,7 +58,7 @@ in
         })
         + ''
 
-          ${toShellVars {inherit typstOutput typstSource;}}
+          ${toShellVars {inherit typstOutput typstSource XDG_CACHE_HOME;}}
           out=''${1:-''${typstOutput:?not defined}}
           mkdir -p "$(dirname "$out")"
           ${typstWatchCommand} ${typstOptsString} "$typstSource" "$out"
