@@ -36,6 +36,7 @@
     "typstSource"
     "typstWatchCommand"
     "virtualPaths"
+    "XDG_CACHE_HOME"
   ];
 in
   pkgs.writeShellApplication (cleanedArgs
